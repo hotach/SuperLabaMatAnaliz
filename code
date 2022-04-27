@@ -1,0 +1,23 @@
+import numpy as np
+from matplotlib import pyplot as plt, patches
+x = np.arange(0,1,0.01)
+a= int(input("введите мелкость разбиения"))
+E= input("введите оснащение(левое, правое, среднее)")
+unit_to_multiplier = {
+    'левое': 0,
+    'правое': 1,
+    'среднее': 0.5
+}
+e=unit_to_multiplier[E]
+fig, ax = plt.subplots()
+ax.plot(x, 2**x)
+k=1/a
+s=0
+for i in range(0,a):
+    s+=k*2**(i*k)
+    ax.add_patch(patches.Rectangle((i*k, 0), k, 2**((i+e)*k), edgecolor = 'blue', facecolor = 'red', fill=False))
+    #plt.pause(0.01)
+print(s)
+str='s = ',s
+ax.text(0, 2, str)
+plt.show()
