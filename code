@@ -16,7 +16,7 @@ s=0
 for i in range(0,a):
     s+=k*2**(i*k)
     ax.add_patch(patches.Rectangle((i*k, 0), k, 2**((i+e)*k), edgecolor = 'blue', facecolor = 'red', fill=False))
-    #plt.pause(0.01)
+    #plt.pause(0.01) #можно включить, будет дольше, но красивее
 print(s)
 str='s = ',s
 ax.text(0, 2, str)
