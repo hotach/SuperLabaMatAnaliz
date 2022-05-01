@@ -1,6 +1,6 @@
 import numpy as np
 from matplotlib import pyplot as plt, patches
-x = np.arange(0,1,0.01)
+x = np.arange(0,1.01,0.01)
 a= int(input("введите мелкость разбиения"))
 E= input("введите оснащение(левое, правое, среднее)")
 unit_to_multiplier = {
@@ -14,10 +14,9 @@ ax.plot(x, 2**x)
 k=1/a
 s=0
 for i in range(0,a):
-    s+=k*2**(i*k)
+    s+=k*2**((i+e)*k)
     ax.add_patch(patches.Rectangle((i*k, 0), k, 2**((i+e)*k), edgecolor = 'blue', facecolor = 'red', fill=False))
-    #plt.pause(0.01) #можно включить, будет дольше, но красивее
-print(s)
-str='s = ',s
+    #plt.pause(0.01)  ##можно включить будет красивee
+str='s = '+str(s)
 ax.text(0, 2, str)
 plt.show()
